@@ -12,6 +12,7 @@ import Register from "../Pages/Register";
 import Error from "../Components/Error";
 import Details from "../Pages/Details";
 import UpdateAddvisa from "../Components/UpdateAddvisa";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -43,7 +44,11 @@ const router = createBrowserRouter([
       },
       {
         path: "Details/:id",
-        element: <Details></Details>,
+        element: (
+          <PrivateRoute>
+            <Details></Details>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/visa/${params.id}`),
       },

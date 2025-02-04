@@ -65,7 +65,7 @@ const AddVisa = () => {
   };
   return (
     <div className="p-24">
-      <h1 className="text-center font-bold text-4xl">Add shedule</h1>
+      <h1 className="text-center font-bold text-4xl">Add visa</h1>
       <form onSubmit={handleSubmit}>
         {/* Country name & Country image */}
         <div className="md:flex  gap-2 p-3">

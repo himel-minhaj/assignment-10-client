@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const MyAddedVisas = () => {
   const myAddedVisa = useLoaderData();
+  // const { user } = useContext(AuthContext);
+  // console.log(user.email);
   // console.log(myAddedVisa);
   const [visaData, setVisaData] = useState(myAddedVisa);
+
+  // if (user?.email == myAddedVisa?.email) {
+  //   setVisaData(myAddedVisa);
+  // }
+
   const handleDelete = (id) => {
     console.log(id);
     fetch(`http://localhost:5000/visa/${id}`, {
@@ -22,7 +30,10 @@ const MyAddedVisas = () => {
     <div>
       <div className="md:grid md:grid-cols-4 ml-3 p-2  gap-1 mx-auto ">
         {visaData.map((visa) => (
-          <div key={visa._id} className="card bg-base-100 md:w-80 shadow-2xl my-4">
+          <div
+            key={visa._id}
+            className="card bg-base-100 md:w-80 shadow-2xl my-4"
+          >
             <figure className="  border border-red-500">
               <img
                 className=" object-fill md:h-60"
@@ -40,7 +51,7 @@ const MyAddedVisas = () => {
                 <p>Validity : {visa.Processing_time}</p>
                 <p>Application_method : {visa.Application_method}</p>
                 <p>Age_restriction : {visa.Age_restriction}</p>
-                
+
                 <h1 className=" text-red-600 font-bold text-xl">
                   Fee :${visa.fee}
                 </h1>

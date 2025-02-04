@@ -64,7 +64,7 @@ const Details = () => {
 
   return (
     <div>
-      <div className="rounded-xl bg-base-100 w-[80%] mx-auto my-5 shadow-2xl">
+      <div className="rounded-xl bg-base-100 w-[80%] mx-auto my-5 shadow-2xl relative">
         <figure className="p-4">
           <img
             className="w-full md:h-60 object-fill rounded-2xl"
@@ -74,8 +74,17 @@ const Details = () => {
         </figure>
         <div className="card-body">
           <h2 className="card-title">Visa Details</h2>
-          <p>Fee: ${fee}</p>
-          <p> Visa_type: {Visa_type}</p>
+          <p>
+            {" "}
+            <strong>Name:</strong> <strong>{countryName}</strong>
+          </p>
+          <p>
+            <strong>Fee:</strong> <strong>{fee}</strong>
+          </p>
+          <p className="absolute top-5 right-6 bg-slate-700 p-3 rounded-md">
+            {" "}
+             <strong className="text-orange-400">{Visa_type}</strong>
+          </p>
           <p>Processing Time: {Processing_time}</p>
           <p>Validity: {Validity}</p>
           <p>Application Method: {Application_method}</p>

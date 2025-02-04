@@ -53,7 +53,7 @@ const UpdateAddvisa = () => {
        .then((data) => {
          console.log(data);
          if (data.modifiedCount) {
-           Swal.fire("Visa data updated successfully!");
+           Swal.fire("Visa updated successfully!");
          }
        });
   };
