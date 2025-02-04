@@ -57,7 +57,7 @@ const Details = () => {
       .then((data) => {
         console.log(data);
         if (data.insertedId) {
-          Swal.fire("data create success");
+          Swal.fire(" create Visa success");
         }
       });
   };

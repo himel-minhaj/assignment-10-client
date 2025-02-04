@@ -18,7 +18,7 @@ const AllVisa = () => {
       <div className="md:grid md:grid-cols-4 p-2   mx-auto ">
         {allVisa.map((visa) => (
           <div key={visa._id} className="card bg-base-100 my-3 md:w-80 shadow-2xl">
-            <figure className="  border border-red-500">
+            <figure className="  border ">
               <img
                 className=" object-cover w-full md:h-[200px]"
                 src={visa.countryImageUrl}

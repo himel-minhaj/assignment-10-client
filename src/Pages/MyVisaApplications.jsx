@@ -91,7 +91,7 @@ const MyVisaApplications = () => {
               </div>
               <button
                 onClick={() => handleCancelApplication(singleApplication._id)}
-                className="w-full bg-red-500 text-white py-2 text-center text-sm font-semibold rounded-b-2xl hover:bg-red-600 transition-all"
+                className="w-full bg-orange-400 text-white py-2 text-center text-sm font-semibold rounded-b-2xl hover:bg-red-600 transition-all"
               >
                 Cancel Application
               </button>
