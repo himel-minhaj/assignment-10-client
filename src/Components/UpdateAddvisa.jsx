@@ -60,7 +60,7 @@ const UpdateAddvisa = () => {
 
   return (
     <div className="p-24">
-      <h1 className="text-center font-bold text-4xl">Add shedule</h1>
+      <h1 className="text-center font-bold text-4xl">Update Visa</h1>
       <form onSubmit={handleSubmit}>
         {/* Country name & Country image */}
         <div className="md:flex  gap-2 p-3">
@@ -109,16 +109,16 @@ const UpdateAddvisa = () => {
               <option disabled selected>
                 Pick your Visa
               </option>
-              <option value="sunday">Student visa</option>
-              <option value="monday">Medical visa</option>
-              <option value="tuesday">Journalist visa</option>
-              <option value="wednesday">Tourist visa</option>
-              <option value="thursday">Employment visa</option>
-              <option value="friday">Business visa</option>
-              <option value="saturday">Companion Visa</option>
-              <option value="saturday">Transit visa</option>
-              <option value="saturday">Entry visa</option>
-              <option value="saturday">Religious Worker visa</option>
+              <option value="Student visa">Student visa</option>
+              <option value="Medical visa">Medical visa</option>
+              <option value="Journalist visa">Journalist visa</option>
+              <option value=">Tourist">Tourist visa</option>
+              <option value="Employment visa">Employment visa</option>
+              <option value="Business visa">Business visa</option>
+              <option value="Companion Visa">Companion Visa</option>
+              <option value="Transit visa">Transit visa</option>
+              <option value="Entry visa">Entry visa</option>
+              <option value="Religious Worker">Religious Worker visa</option>
             </select>
           </div>
           <div className="form-control md:w-1/2">
