@@ -1,12 +1,30 @@
 import React, { useContext, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { IoAirplaneSharp } from "react-icons/io5";
 import { AuthContext } from "../Provider/AuthProvider";
-import icon from '../assets/user.png'
+import icon from "../assets/user.png";
+import toast from "react-hot-toast";
+
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
-     const [showName, setShowName] = useState(false);
+  const { user, LogOutUser } = useContext(AuthContext);
+  const [showName, setShowName] = useState(false);
+  const navigate = useNavigate();
+  const handleLogOut = () => {
+    LogOutUser()
+      .then(() => {
+        
+        // toast.success(" LogOut successful.");
+        setTimeout(() => {
+          navigate("/auth/login");
+        }, 1000);
+        // toast(" LogOut successful.");
+        toast.success(" LogOut successful.");
+      })
+      .catch((error) => {
+        alert("Error Paichi", error.message);
+      });
+  };
   // console.log(user);
   const links = (
     <>
@@ -34,44 +52,46 @@ const Navbar = () => {
           All visas
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          className={({ isActive }) =>
-            ` font-bold ${
-              isActive ? "btn bg-orange-400" : "hover:text-warning"
-            }`
-          }
-          to="/AddVisa"
-        >
-          Add Visa
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          className={({ isActive }) =>
-            ` font-bold ${
-              isActive ? "btn bg-orange-400" : "hover:text-warning"
-            }`
-          }
-          to="/MyAddedVisas"
-        >
-          My added visas
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          className={({ isActive }) =>
-            ` font-bold ${
-              isActive ? "btn bg-orange-400" : "hover:text-warning"
-            }`
-          }
-          to="/MyVisaApplications"
-        >
-          My Visa applications
-        </NavLink>
-      </li>
-    
-
+      {user && (
+        <>
+          <li>
+            <NavLink
+              className={({ isActive }) =>
+                ` font-bold ${
+                  isActive ? "btn bg-orange-400" : "hover:text-warning"
+                }`
+              }
+              to="/AddVisa"
+            >
+              Add Visa
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive }) =>
+                ` font-bold ${
+                  isActive ? "btn bg-orange-400" : "hover:text-warning"
+                }`
+              }
+              to="/MyAddedVisas"
+            >
+              My added visas
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive }) =>
+                ` font-bold ${
+                  isActive ? "btn bg-orange-400" : "hover:text-warning"
+                }`
+              }
+              to="/MyVisaApplications"
+            >
+              My Visa applications
+            </NavLink>
+          </li>
+        </>
+      )}
     </>
   );
   return (
@@ -143,14 +163,15 @@ const Navbar = () => {
                 {user?.displayName}
               </div>
             )}
-          
           </div>
         ) : (
           <img className="w-10 h-10 rounded-full" src={icon} alt="" />
         )}
         {user ? (
           <>
-            <button className="btn bg-orange-400">LogOut</button>
+            <button onClick={handleLogOut} className="btn bg-orange-400">
+              LogOut
+            </button>
           </>
         ) : (
           <Link to={"/auth/login"}>LogIn</Link>

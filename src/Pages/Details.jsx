@@ -9,11 +9,13 @@ const Details = () => {
   const singleVisa = useLoaderData();
   const {
     countryImageUrl,
+    countryName,
     fee,
     Processing_time,
     Validity,
     Application_method,
     Description,
+    Visa_type,
   } = singleVisa;
 
   const [isOpen, setIsOpen] = useState(false);
@@ -32,8 +34,10 @@ const Details = () => {
       lastName,
       email,
       currentDate,
+      countryName,
       countryImageUrl,
       fee,
+      Visa_type,
       Processing_time,
       Validity,
       Application_method,
@@ -71,12 +75,16 @@ const Details = () => {
         <div className="card-body">
           <h2 className="card-title">Visa Details</h2>
           <p>Fee: ${fee}</p>
+          <p> Visa_type: {Visa_type}</p>
           <p>Processing Time: {Processing_time}</p>
           <p>Validity: {Validity}</p>
           <p>Application Method: {Application_method}</p>
           <p>Description: {Description}</p>
           <div className="card-actions justify-center">
-            <button onClick={() => setIsOpen(true)} className="btn btn-primary">
+            <button
+              onClick={() => setIsOpen(true)}
+              className="btn bg-orange-400"
+            >
               Apply Now
             </button>
           </div>

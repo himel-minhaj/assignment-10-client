@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { useLoaderData } from "react-router-dom";
 
 const UpdateAddvisa = () => {
   const loaderData = useLoaderData();
+  //  const [visaType, setVisaType] = useState(loaderData?.Visa_type);
 
   const {
     _id,
@@ -22,6 +23,7 @@ const UpdateAddvisa = () => {
   // const email = user?.email;
   // console.log(email);
   const handleSubmit = (e) => {
+    
     e.preventDefault();
     const form = e.target;
 
@@ -35,7 +37,7 @@ const UpdateAddvisa = () => {
       fee: form.fee.value,
       Validity: form.Validity.value,
       Application_method: form.Application_method.value,
-      // id: _id,
+      
     };
 
     console.log("Collected Visa Data:", visaData); // Check values before sending
@@ -102,6 +104,7 @@ const UpdateAddvisa = () => {
               name="Visa_type"
               id="Visa_type"
               defaultValue={Visa_type}
+              // onChange={(e) => setVisaType(e.target.value)}
             >
               <option disabled selected>
                 Pick your Visa
@@ -202,7 +205,7 @@ const UpdateAddvisa = () => {
             <label className="input-group">
               <input
                 className="input input-bordered  w-full"
-                placeholder="Country name"
+                placeholder="Description"
                 type="text"
                 name="Description"
                 defaultValue={Description}

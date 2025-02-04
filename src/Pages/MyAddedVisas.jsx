@@ -20,9 +20,9 @@ const MyAddedVisas = () => {
   };
   return (
     <div>
-      <div className="md:grid md:grid-cols-4 ml-3  gap-1 mx-auto space-y-5">
+      <div className="md:grid md:grid-cols-4 ml-3 p-2  gap-1 mx-auto ">
         {visaData.map((visa) => (
-          <div key={visa._id} className="card bg-base-100 md:w-80 shadow-2xl">
+          <div key={visa._id} className="card bg-base-100 md:w-80 shadow-2xl my-4">
             <figure className="  border border-red-500">
               <img
                 className=" object-fill md:h-60"

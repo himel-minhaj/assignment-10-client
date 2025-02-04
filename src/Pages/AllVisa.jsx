@@ -15,12 +15,12 @@ const AllVisa = () => {
         categories, fees, processing times, and more in one seamless platform
         need
       </p>
-      <div className="md:grid md:grid-cols-4 ml-3  gap-1 mx-auto space-y-5">
+      <div className="md:grid md:grid-cols-4 p-2   mx-auto ">
         {allVisa.map((visa) => (
-          <div key={visa._id} className="card bg-base-100 md:w-80 shadow-2xl">
+          <div key={visa._id} className="card bg-base-100 my-3 md:w-80 shadow-2xl">
             <figure className="  border border-red-500">
               <img
-                className=" object-fill md:h-60"
+                className=" object-cover w-full md:h-[200px]"
                 src={visa.countryImageUrl}
                 alt=""
               />

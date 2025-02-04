@@ -1,5 +1,4 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import toast, { Toaster } from "react-hot-toast";
 
 import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
@@ -7,7 +6,9 @@ import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../Firebase/Firebase.init";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 // import { Helmet } from "react-helmet";
-import googleIcon from '../assets/google.png'
+import googleIcon from "../assets/google.png";
+import toast from "react-hot-toast";
+
 
 const Login = () => {
   const { LogInUser, setUser, signInGoogle } = useContext(AuthContext);
@@ -38,7 +39,6 @@ const Login = () => {
     signInGoogle()
       .then((Result) => {
         setUser(Result.user);
-        <Toaster></Toaster>;
         toast.success(" Login successful.");
         navigate(location?.state ? location.state : "/");
       })

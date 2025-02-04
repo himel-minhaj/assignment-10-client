@@ -22,18 +22,18 @@ const AddVisa = () => {
     const fee = form.fee.value;
     const Validity = form.Validity.value;
     const Application_method = form.Application_method.value;
-    // console.log(
-    //   countryName,
-    //   countryImageUrl,
-    //   Visa_type,
-    //   Processing_time,
-    //   requiredDocuments,
-    //   Description,
-    //   Age_restriction,
-    //   fee,
-    //   Validity,
-    //   Application_method
-    // );
+    console.log(
+      countryName,
+      countryImageUrl,
+      Visa_type,
+      Processing_time,
+      requiredDocuments,
+      Description,
+      Age_restriction,
+      fee,
+      Validity,
+      Application_method
+    );
     const visaData = {
       countryName,
       countryImageUrl,
@@ -110,16 +110,16 @@ const AddVisa = () => {
               <option disabled selected>
                 Pick your Visa
               </option>
-              <option value="sunday">Student visa</option>
-              <option value="monday">Medical visa</option>
-              <option value="tuesday">Journalist visa</option>
-              <option value="wednesday">Tourist visa</option>
-              <option value="thursday">Employment visa</option>
-              <option value="friday">Business visa</option>
-              <option value="saturday">Companion Visa</option>
-              <option value="saturday">Transit visa</option>
-              <option value="saturday">Entry visa</option>
-              <option value="saturday">Religious Worker visa</option>
+              <option value="Student visa">Student visa</option>
+              <option value="Medical visa">Medical visa</option>
+              <option value="Journalist visa">Journalist visa</option>
+              <option value=">Tourist">Tourist visa</option>
+              <option value="Employment visa">Employment visa</option>
+              <option value="Business visa">Business visa</option>
+              <option value="Companion Visa">Companion Visa</option>
+              <option value="Transit visa">Transit visa</option>
+              <option value="Entry visa">Entry visa</option>
+              <option value="Religious Worker">Religious Worker visa</option>
             </select>
           </div>
           <div className="form-control md:w-1/2">
@@ -205,7 +205,7 @@ const AddVisa = () => {
             <label className="input-group">
               <input
                 className="input input-bordered  w-full"
-                placeholder="Country name"
+                placeholder="Description"
                 type="text"
                 name="Description"
               />
