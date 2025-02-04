@@ -5,7 +5,6 @@ import { AuthContext } from "../Provider/AuthProvider";
 import icon from "../assets/user.png";
 import toast from "react-hot-toast";
 
-
 const Navbar = () => {
   const { user, LogOutUser } = useContext(AuthContext);
   const [showName, setShowName] = useState(false);
@@ -13,8 +12,6 @@ const Navbar = () => {
   const handleLogOut = () => {
     LogOutUser()
       .then(() => {
-        
-        // toast.success(" LogOut successful.");
         setTimeout(() => {
           navigate("/auth/login");
         }, 1000);

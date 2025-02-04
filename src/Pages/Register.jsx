@@ -83,7 +83,7 @@ const Register = () => {
             />
           </div>
           {error.name && (
-            <label className="label text-sm text-red-600">{error.name}</label>
+            <label className="label text-sm text-black">{error.name}</label>
           )}
           <div className="form-control">
             <label className="label">
@@ -122,10 +122,10 @@ const Register = () => {
             />
           </div>
           {error.password && (
-            <label className="label text-red-600">{error.password}</label>
+            <label className="label text-black">{error.password}</label>
           )}
           {error.Error && (
-            <label className="label text-sm text-red-600">{error.Error}</label>
+            <label className="label text-sm text-black">{error.Error}</label>
           )}
           <div className="form-control mt-6">
             <button className="btn btn-neutral rounded-md">Register</button>
