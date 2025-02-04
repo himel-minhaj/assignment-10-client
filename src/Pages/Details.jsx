@@ -16,6 +16,8 @@ const Details = () => {
     Application_method,
     Description,
     Visa_type,
+    requiredDocuments,
+    Age_restriction,
   } = singleVisa;
 
   const [isOpen, setIsOpen] = useState(false);
@@ -73,7 +75,9 @@ const Details = () => {
           />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">Visa Details</h2>
+          <h2 className="card-title md:text-3xl text-orange-400">
+            Visa Details
+          </h2>
           <p>
             {" "}
             <strong>Name:</strong> <strong>{countryName}</strong>
@@ -81,9 +85,20 @@ const Details = () => {
           <p>
             <strong>Fee:</strong> <strong>{fee}</strong>
           </p>
+          <p>
+            <strong>Age_restriction :</strong>{" "}
+            <strong>{Age_restriction}</strong>
+          </p>
+          <div className="text-red-600">
+            <p>
+              {requiredDocuments.map((singleReq, idx) => (
+                <p key={idx}>{singleReq}</p>
+              ))}
+            </p>
+          </div>
           <p className="absolute top-5 right-6 bg-slate-700 p-3 rounded-md">
             {" "}
-             <strong className="text-orange-400">{Visa_type}</strong>
+            <strong className="text-orange-400">{Visa_type}</strong>
           </p>
           <p>Processing Time: {Processing_time}</p>
           <p>Validity: {Validity}</p>
