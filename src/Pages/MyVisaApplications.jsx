@@ -1,12 +1,20 @@
-import React, { useState } from "react";
-import toast from "react-hot-toast";
-import { useLoaderData } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+
 import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const MyVisaApplications = () => {
-  const visaData = useLoaderData();
-  const [myVisaApplications, setMyVisaApplications] = useState(visaData);
-  // console.log(MyVisaApplications);
+  // const visaData = useLoaderData();
+  const { user } = useContext(AuthContext);
+  console.log(user.email);
+  const [myVisaApplications, setMyVisaApplications] = useState(null);
+  useEffect(() => {
+    fetch(`http://localhost:5000/apply/myvisaApplication/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setMyVisaApplications(data));
+    //
+  }, [user.email]);
+ 
   const handleCancelApplication = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -31,12 +39,9 @@ const MyVisaApplications = () => {
               );
               setMyVisaApplications(remaningdata);
             }
-
-           
-          }); 
+          });
       }
     });
-   
   };
   return (
     <div>
@@ -44,7 +49,7 @@ const MyVisaApplications = () => {
         My Visa Applications
       </h1>
       <div className="md:grid md:grid-cols-4 ml-3  gap-1 mx-auto my-4">
-        {myVisaApplications.map((singleApplication) => (
+        {myVisaApplications?.map((singleApplication) => (
           <div
             key={singleApplication._id}
             className="flex justify-center items-center  bg-gray-100 rounded-lg p-4"
@@ -86,7 +91,7 @@ const MyVisaApplications = () => {
                   <strong>{singleApplication.lastName}</strong>
                 </p>
                 <p className="text-sm text-gray-600">
-                  <strong>Email:</strong> himelminhajul@gmail.com
+                  <strong>Email:</strong> {singleApplication.email}
                 </p>
               </div>
               <button

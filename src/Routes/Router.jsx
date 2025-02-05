@@ -39,7 +39,8 @@ const router = createBrowserRouter([
             <MyAddedVisas></MyAddedVisas>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/visa"),
+        // loader: ({ params }) =>
+        //   fetch(`http://localhost:5000/visa/MyAddedVisas/${params.email}`),
       },
       {
         path: "MyVisaApplications",
@@ -48,7 +49,7 @@ const router = createBrowserRouter([
             <MyVisaApplications></MyVisaApplications>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/apply"),
+        // loader: () => fetch("http://localhost:5000/apply"),
       },
       {
         path: "Details/:id",
