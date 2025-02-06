@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import { Cursor, Typewriter, useTypewriter } from "react-simple-typewriter";
 
 const AllVisa = () => {
   const visaData = useLoaderData();
@@ -8,7 +9,7 @@ const AllVisa = () => {
   const [visa, setVisa] = useState();
   // console.log("value", visa);
   useEffect(() => {
-    if ((visa =="All")) {
+    if (visa == "All") {
       fetch("http://localhost:5000/visa")
         .then((res) => res.json())
         .then((data) => setAllVisa(data));
@@ -20,11 +21,42 @@ const AllVisa = () => {
 
     //
   }, [visa]);
-
+  // const { text } = useTypewriter({
+  //   words: [
+  //     "destinations worldwide",
+  //     "explore World Wide",
+  //     "Adventure Trails,",
+  //     "Hop-on",
+  //     "The Royal Route",
+  //   ],
+  //   loop: {},
+  // });
   return (
     <div>
       <h1 className="md:text-4xl font-bold text-center mt-3">
-        Apply for visa for destinations worldwide
+        Apply for visa for{" "}
+        <span className="font-bold text-red-600">
+          <Typewriter
+            words={[
+              "destinations worldwide",
+              "Explore World Wide",
+              "Adventure Trails",
+              "Hop-on",
+              "The Royal Route",
+            ]}
+            loop={5}
+            // cursor
+            // cursorStyle=">"
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+            // onLoopDone={handleDone}
+            // onType={handleType}
+          />
+        </span>
+        <span>
+          <Cursor cursorColor="green" cursorStyle="/"  />
+        </span>
       </h1>
       <p className="text-lg text-center my-2 w-9/12 mx-auto">
         The Visa Navigator helps you to quickly and easily find the visa

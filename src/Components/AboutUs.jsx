@@ -2,6 +2,7 @@ import React from "react";
 import OurGoals from "./OurGoals";
 import { AttentionSeeker, Bounce, Slide } from "react-awesome-reveal";
 
+
 // import { Helmet } from "react-helmet";
 
 const AboutUs = () => {
@@ -13,9 +14,12 @@ const AboutUs = () => {
       </Helmet> */}
       <div className="bg-blue-400  mx-auto p-5 rounded-lg text-white ">
         <AttentionSeeker effect="rubberBand">
-          <h1 className="text-center md:text-3xl font-bold mb-3 "> About-us</h1>
+          <h1 className="text-2xl text-center text-orange-500 md:text-4xl font-bold mb-3 ">
+            {" "}
+            About-us
+          </h1>
         </AttentionSeeker>
-        <Slide direction="down" delay={1000}>
+        <Slide direction="left" delay={1000}>
           {" "}
           <h2 className="text-center md:text-3xl font-bold mb-3 text-orange-400">
             {" "}
