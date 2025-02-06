@@ -1,10 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 
 const AllVisa = () => {
   const visaData = useLoaderData();
   // console.log(allVisa);
   const [allVisa, setAllVisa] = useState(visaData);
+  const [visa, setVisa] = useState();
+  // console.log("value", visa);
+  useEffect(() => {
+    if ((visa =="All")) {
+      fetch("http://localhost:5000/visa")
+        .then((res) => res.json())
+        .then((data) => setAllVisa(data));
+    } else {
+      fetch(`http://localhost:5000/visa/findVisa/${visa}`)
+        .then((res) => res.json())
+        .then((data) => setAllVisa(data));
+    }
+
+    //
+  }, [visa]);
+
   return (
     <div>
       <h1 className="md:text-4xl font-bold text-center mt-3">
@@ -18,10 +34,14 @@ const AllVisa = () => {
       </p>
       <div className="flex justify-center items-center space-x-2">
         <h1 className="font-bold">Filter By Visa Type</h1>
-        <select className="select select-info w-full max-w-xs">
+        <select
+          onChange={(e) => setVisa(e.target.value)}
+          className="select select-info w-full max-w-xs"
+        >
           <option disabled selected>
             Filter Visa
           </option>
+          <option value="All">All</option>
           <option value="Student visa">Student visa</option>
           <option value="Medical visa">Medical visa</option>
           <option value="Journalist visa">Journalist visa</option>
@@ -33,7 +53,6 @@ const AllVisa = () => {
           <option value="Entry visa">Entry visa</option>
           <option value="Religious Worker">Religious Worker visa</option>
         </select>
-        
       </div>
       <div className="md:grid md:grid-cols-4 p-2   mx-auto ">
         {allVisa.map((visa) => (
