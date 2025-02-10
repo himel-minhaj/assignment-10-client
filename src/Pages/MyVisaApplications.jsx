@@ -70,7 +70,7 @@ const MyVisaApplications = () => {
     });
   };
   return (
-    <div>
+    <div className="dark:text-white">
       <h1 className="md:text-5xl text-center my-3 font-bold">
         My Visa Applications
       </h1>

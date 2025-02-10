@@ -6,7 +6,7 @@ import { Slide } from "react-awesome-reveal";
 
 const Feedback = () => {
   return (
-    <div>
+    <div className="dark:text-white">
       <h1 className="md:text-5xl font-bold text-center">User Reviews</h1>
       <Slide direction="left">
         <div className="md:grid md:grid-cols-3 gap-4 my-6">

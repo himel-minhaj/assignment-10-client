@@ -36,8 +36,8 @@ const AllVisa = () => {
   //   loop: {},
   // });
   return (
-    <div>
-      <h1 className="md:text-4xl font-bold text-center mt-3">
+    <div className="dark:text-white">
+      <h1 className="md:text-4xl font-bold text-center mt-3 ">
         Apply for visa for{" "}
         <span className="font-bold text-red-600">
           <Typewriter

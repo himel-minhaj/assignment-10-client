@@ -1,35 +1,51 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { IoAirplaneSharp } from "react-icons/io5";
 import { AuthContext } from "../Provider/AuthProvider";
 import icon from "../assets/user.png";
 import toast from "react-hot-toast";
+import { BsMoon, BsSun } from "react-icons/bs";
 
 const Navbar = () => {
   const { user, LogOutUser } = useContext(AuthContext);
   const [showName, setShowName] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem("theme") === "dark";
+  });
+  // const [darkMode, setDarkMode] = useState(true);
+  // console.log(darkMode);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [darkMode]);
+
   const handleLogOut = () => {
     LogOutUser()
       .then(() => {
         setTimeout(() => {
           navigate("/auth/login");
         }, 1000);
-        // toast(" LogOut successful.");
-        toast.success(" LogOut successful.");
+        toast.success("LogOut successful.");
       })
       .catch((error) => {
         alert("Error Paichi", error.message);
       });
   };
-  // console.log(user);
+
   const links = (
     <>
       <li>
         <NavLink
           className={({ isActive }) =>
             ` font-bold ${
-              isActive ? "btn bg-orange-400 " : "hover:text-warning"
+              isActive ? "btn bg-orange-400" : "hover:text-warning"
             }`
           }
           to="/"
@@ -91,8 +107,9 @@ const Navbar = () => {
       )}
     </>
   );
+
   return (
-    <div className="navbar bg-blue-700 p-4  text-white">
+    <div className="navbar bg-blue-700 p-4 text-white ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -118,61 +135,55 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <div className="flex">
-          <NavLink className="flex justify-center items-center md:text-xl font-bold">
-            <span className="bg-orange-400 flex border rounded-full p-2">
-              <IoAirplaneSharp />
-            </span>
-            <span className="text-orange-400 md:ml-3">V</span>ISA
-            <span className="text-orange-400 md:ml-3">N</span>AVIGATOR
-          </NavLink>
-        </div>
+        <NavLink className="flex items-center md:text-xl font-bold">
+          <span className="bg-orange-400 flex border rounded-full p-2">
+            <IoAirplaneSharp />
+          </span>
+          <span className="text-orange-400 md:ml-3">V</span>ISA
+          <span className="text-orange-400 md:ml-3">N</span>AVIGATOR
+        </NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
-      <div className="navbar-end">
-        {/* <a className="btn">{user?.email}</a> */}
-        {/* <Link to="/auth/login">Login</Link> */}
+      <div className="navbar-end flex items-center gap-4">
         {user && user?.email ? (
           <div className="relative inline-block">
             <img
               className="w-10 h-10 rounded-full mr-3"
-              src={user?.photoURL}
-              alt=""
-              // id="user-img"
+              src={user?.photoURL || icon}
+              alt="User"
               onMouseEnter={() => setShowName(true)}
               onMouseLeave={() => setShowName(false)}
-              style={{ width: "50px", height: "50px", borderRadius: "50%" }}
             />
             {showName && (
-              <div
-                // id="user-name"
-                style={{
-                  position: "absolute",
-                  top: "60px",
-                  background: "blue",
-                  padding: "5px",
-                  borderRadius: "5px",
-                  boxShadow: "0px 0px 5px rgba(0,0,0,0.2)",
-                }}
-              >
+              <div className="absolute top-12 bg-blue-700 p-2 rounded shadow-md">
                 {user?.displayName}
               </div>
             )}
           </div>
         ) : (
-          <img className="w-10 h-10 rounded-full" src={icon} alt="" />
+          <img
+            className="w-10 h-10 rounded-full"
+            src={icon}
+            alt="Default User"
+          />
         )}
         {user ? (
-          <>
-            <button onClick={handleLogOut} className="btn bg-orange-400">
-              LogOut
-            </button>
-          </>
+          <button onClick={handleLogOut} className="btn bg-orange-400">
+            LogOut
+          </button>
         ) : (
-          <Link to={"/auth/login"}>LogIn</Link>
+          <Link to="/auth/login" className="btn bg-orange-400">
+            LogIn
+          </Link>
         )}
+        <button
+          onClick={() => setDarkMode(!darkMode)}
+          className="btn bg-gray-600 text-white"
+        >
+          {darkMode ? <BsSun /> : <BsMoon />}
+        </button>
       </div>
     </div>
   );
