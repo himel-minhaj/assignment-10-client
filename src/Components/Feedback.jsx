@@ -6,10 +6,10 @@ import { Slide } from "react-awesome-reveal";
 
 const Feedback = () => {
   return (
-    <div className="dark:text-white">
+    <div className="dark:text-white mb-5">
       <h1 className="md:text-5xl font-bold text-center">User Reviews</h1>
       <Slide direction="left">
-        <div className="md:grid md:grid-cols-3 gap-4 my-6">
+        <div className="md:grid md:grid-cols-3 space-y-4 mt-5">
           {/* user 1 */}
           <div className="card bg-base-100 shadow-2xl">
             <div className="p-6">

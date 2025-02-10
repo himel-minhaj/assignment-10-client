@@ -3,9 +3,9 @@ import { Link, useLoaderData } from "react-router-dom";
 import { Cursor, Typewriter, useTypewriter } from "react-simple-typewriter";
 
 const LeatestVisa = () => {
-  const visaData = useLoaderData();
+  const allVisa = useLoaderData();
   // console.log(allVisa);
-  const [allVisa, setAllVisa] = useState(visaData);
+  // const [allVisa, setAllVisa] = useState(visaData);
 
   return (
     <div className="dark:text-white">
@@ -41,7 +41,7 @@ const LeatestVisa = () => {
         need
       </p>
 
-      <div className="md:grid md:grid-cols-3 p-2 mx-auto ">
+      <div className="md:grid md:grid-cols-3 p-2 mx-auto ml-4 ">
         {allVisa.slice(0, 6).map((visa) => (
           <div
             key={visa._id}
@@ -67,7 +67,7 @@ const LeatestVisa = () => {
                 <h1 className=" text-red-600 font-bold text-xl">
                   Fee :${visa.fee}
                 </h1>
-                <Link to={`/Details/${visa._id}`} className="btn btn-success">
+                <Link to={`/Details/${visa._id}`} className="btn btn-warning">
                   Details
                 </Link>
               </div>
@@ -76,7 +76,7 @@ const LeatestVisa = () => {
         ))}
       </div>
       <div className="flex justify-center items-center">
-        <Link to={"/Allvisas"} className="btn bg-orange-400 p-4">
+        <Link to={"/Allvisas"} className="btn btn-warning p-4">
          See All Visa
         </Link>
       </div>
