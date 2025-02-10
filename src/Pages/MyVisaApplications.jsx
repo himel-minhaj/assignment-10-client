@@ -7,22 +7,39 @@ const MyVisaApplications = () => {
   // const visaData = useLoaderData();
   const { user } = useContext(AuthContext);
   // console.log(user.email);
+
   const [myVisaApplications, setMyVisaApplications] = useState(null);
   const [search, setSearch] = useState("");
+
+
   useEffect(() => {
-    fetch(`http://localhost:5000/apply/myvisaApplication/${user.email}`)
-      .then((res) => res.json())
-      .then((data) => setMyVisaApplications(data));
+    if (search) {
+      fetch(
+        `http://localhost:5000/apply?searchParams=${search}&email=${user.email}`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          // console.log(data);
+          setMyVisaApplications(data);
+        });
+    }
+    else {
+      fetch(`http://localhost:5000/apply/myvisaApplication/${user.email}`)
+        .then((res) => res.json())
+        .then((data) => setMyVisaApplications(data));
+    }
     //
-  }, [user.email]);
-  useEffect(() => {
-    fetch(`http://localhost:5000/apply?searchParams=${search}`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setMyVisaApplications(data);
-      });
-  }, [search]);
+  }, [search, user.email]);
+  // useEffect(() => {
+  //   fetch(
+  //     `http://localhost:5000/apply?searchParams=${search}&email=${user.email}`
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       // console.log(data);
+  //       setMyVisaApplications(data);
+  //     });
+  // }, [search, user.email]);
 
   const handleCancelApplication = (id) => {
     Swal.fire({
@@ -62,7 +79,7 @@ const MyVisaApplications = () => {
           onChange={(e) => setSearch(e.target.value)}
           type="text"
           name="search"
-          placeholder="search"
+          placeholder="search by country"
           className="input input-bordered w-full"
           required
         />
