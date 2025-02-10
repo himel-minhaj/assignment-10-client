@@ -7,7 +7,7 @@ import AboutUs from '../Components/AboutUs';
 const Home = () => {
   return (
     <div>
-      <section className='my-5'>
+      <section className='my-5 mt-32 md:mt-3'>
         <Banner></Banner>
       </section>
       <AboutUs></AboutUs>
