@@ -6,15 +6,24 @@ import { AuthContext } from "../Provider/AuthProvider";
 const MyVisaApplications = () => {
   // const visaData = useLoaderData();
   const { user } = useContext(AuthContext);
-  console.log(user.email);
+  // console.log(user.email);
   const [myVisaApplications, setMyVisaApplications] = useState(null);
+  const [search, setSearch] = useState("");
   useEffect(() => {
     fetch(`http://localhost:5000/apply/myvisaApplication/${user.email}`)
       .then((res) => res.json())
       .then((data) => setMyVisaApplications(data));
     //
   }, [user.email]);
- 
+  useEffect(() => {
+    fetch(`http://localhost:5000/apply?searchParams=${search}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setMyVisaApplications(data);
+      });
+  }, [search]);
+
   const handleCancelApplication = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -48,6 +57,16 @@ const MyVisaApplications = () => {
       <h1 className="md:text-5xl text-center my-3 font-bold">
         My Visa Applications
       </h1>
+      <div className="md:w-[400px] mx-auto my-4">
+        <input
+          onChange={(e) => setSearch(e.target.value)}
+          type="text"
+          name="search"
+          placeholder="search"
+          className="input input-bordered w-full"
+          required
+        />
+      </div>
       <div className="md:grid md:grid-cols-4 ml-3  gap-1 mx-auto my-4">
         {myVisaApplications?.map((singleApplication) => (
           <div

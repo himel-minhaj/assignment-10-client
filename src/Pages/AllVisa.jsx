@@ -7,9 +7,13 @@ const AllVisa = () => {
   // console.log(allVisa);
   const [allVisa, setAllVisa] = useState(visaData);
   const [visa, setVisa] = useState();
-  // console.log("value", visa);
+  console.log("value", visa);
   useEffect(() => {
-    if (visa == "All") {
+    if (visa == undefined) {
+      fetch("http://localhost:5000/visa")
+        .then((res) => res.json())
+        .then((data) => setAllVisa(data));
+    } else if (visa == "All") {
       fetch("http://localhost:5000/visa")
         .then((res) => res.json())
         .then((data) => setAllVisa(data));
@@ -55,7 +59,7 @@ const AllVisa = () => {
           />
         </span>
         <span>
-          <Cursor cursorColor="green" cursorStyle="/"  />
+          <Cursor cursorColor="green" cursorStyle="/" />
         </span>
       </h1>
       <p className="text-lg text-center my-2 w-9/12 mx-auto">

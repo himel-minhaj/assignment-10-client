@@ -91,7 +91,7 @@ const Details = () => {
           </p>
           <div className="text-red-600">
             <p>
-              {requiredDocuments.map((singleReq, idx) => (
+              {requiredDocuments?.map((singleReq, idx) => (
                 <p key={idx}>{singleReq}</p>
               ))}
             </p>
