@@ -79,7 +79,7 @@ const MyVisaApplications = () => {
       <h1 className="md:text-5xl text-center my-3 font-bold">
         My Visa Applications
       </h1>
-      <div className="md:w-[400px] mx-auto my-4">
+      <div className="lg:w-[400px] md:w-[200px] mx-auto my-4">
         <input
           onChange={(e) => setSearch(e.target.value)}
           type="text"
@@ -89,7 +89,7 @@ const MyVisaApplications = () => {
           required
         />
       </div>
-      <div className="md:grid md:grid-cols-4 ml-3  gap-1 mx-auto my-4">
+      <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-3 p-1  my-4">
         {myVisaApplications?.map((singleApplication) => (
           <div
             key={singleApplication._id}

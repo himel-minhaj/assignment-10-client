@@ -9,22 +9,45 @@ import { BsMoon, BsSun } from "react-icons/bs";
 const Navbar = () => {
   const { user, LogOutUser } = useContext(AuthContext);
   const [showName, setShowName] = useState(false);
-  const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem("theme") === "dark";
-  });
-  // const [darkMode, setDarkMode] = useState(true);
-  // console.log(darkMode);
+  // const [darkMode, setDarkMode] = useState(() => {
+  //   return localStorage.getItem("theme") === "dark";
+  // });
+  // // const [darkMode, setDarkMode] = useState(true);
+  // // console.log(darkMode);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
+  // useEffect(() => {
+  //   if (darkMode) {
+  //     document.documentElement.classList.add("dark");
+  //     localStorage.setItem("theme", "dark");
+  //   } else {
+  //     document.documentElement.classList.remove("dark");
+  //     localStorage.setItem("theme", "light");
+  //   }
+  // }, [darkMode]);
+  const [mode, setMode] = useState("light");
+
+  function changeTheme() {
+    const html = document.documentElement;
+    setMode(!mode);
+    if (mode === "light") {
+      html.classList.remove("light");
+      html.classList.add("dark");
+      setMode("dark");
+      localStorage.setItem("mode", "dark");
     } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
+      html.classList.remove("dark");
+      html.classList.add("light");
+      setMode("light");
+      localStorage.setItem("mode", "light");
     }
-  }, [darkMode]);
+  }
+
+  useEffect(() => {
+    const currentMode = localStorage.getItem("mode") || "light";
+    document.documentElement.classList.add(currentMode);
+    setMode(currentMode);
+  }, []);
 
   const handleLogOut = () => {
     LogOutUser()
@@ -179,10 +202,10 @@ const Navbar = () => {
           </Link>
         )}
         <button
-          onClick={() => setDarkMode(!darkMode)}
+          onClick={() => changeTheme()}
           className="btn bg-gray-600 text-white"
         >
-          {darkMode ? <BsSun /> : <BsMoon />}
+          {mode == "light" ? <BsSun /> : <BsMoon />}
         </button>
       </div>
     </div>

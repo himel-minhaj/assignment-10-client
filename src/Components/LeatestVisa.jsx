@@ -41,11 +41,11 @@ const LeatestVisa = () => {
         need
       </p>
 
-      <div className="md:grid md:grid-cols-3 lg:ml-14 p-5 gap-4  ">
+      <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4 p-2 ">
         {allVisa.slice(0, 6).map((visa) => (
           <div
             key={visa._id}
-            className="card bg-base-100 my-3 lg:w-80 shadow-2xl"
+            className="card bg-base-100 my-3 lg:w-70 shadow-2xl"
           >
             <figure className="  border ">
               <img
@@ -63,7 +63,7 @@ const LeatestVisa = () => {
                 <p>Processing_time :{visa.Processing_time} </p>
                 <p>Validity : {visa.Processing_time}</p>
               </div>
-              <div className="flex justify-center items-center gap-2 ">
+              <div className="flex flex-col lg:flex-row  justify-center items-center gap-2 ">
                 <h1 className=" text-red-600 font-bold text-xl">
                   Fee :${visa.fee}
                 </h1>

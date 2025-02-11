@@ -49,15 +49,15 @@ const MyAddedVisas = () => {
         <title>Visa Navigator/MyAddedVisas</title>
         <meta name="description" content="Helmet application" />
       </Helmet>
-      <div className="md:grid md:grid-cols-3 ml-3 p-2  gap-1 mx-auto relative ">
+      <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-3 p-3 relative ">
         {visaData?.map((visa) => (
           <div
             key={visa._id}
-            className="card bg-base-100 md:w-96 shadow-2xl my-4"
+            className="card bg-base-100 md:w-50 lg:w-70 shadow-2xl my-4"
           >
             <figure className="  border p-2 ">
               <img
-                className=" object-fill md:h-60 rounded-md"
+                className=" object-fill lg:h-56  rounded-md"
                 src={visa.countryImageUrl}
                 alt=""
               />

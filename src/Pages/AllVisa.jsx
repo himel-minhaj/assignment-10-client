@@ -97,15 +97,15 @@ const AllVisa = () => {
           <option value="Religious Worker">Religious Worker visa</option>
         </select>
       </div>
-      <div className="md:grid md:grid-cols-4 p-2   mx-auto ">
+      <div className="grid md:grid-cols-3 lg:grid-cols-4  gap-2 p-2  mx-auto ">
         {allVisa.map((visa) => (
           <div
             key={visa._id}
-            className="card bg-base-100 my-3 lg:w-80 shadow-2xl relative"
+            className="card bg-base-100 my-3 lg:w-70 shadow-2xl relative"
           >
             <figure className="  border ">
               <img
-                className=" object-cover w-full md:h-[200px]"
+                className=" object-cover w-full md:h-[100px] lg:h-[200px]"
                 src={visa.countryImageUrl}
                 alt=""
               />
@@ -122,7 +122,7 @@ const AllVisa = () => {
                   {visa.Visa_type}
                 </p>
               </div>
-              <div className="flex justify-center items-center gap-2 ">
+              <div className="flex flex-col lg:flex-row  justify-center items-center gap-2 ">
                 <h1 className=" text-red-600 font-bold text-xl">
                   Fee :${visa.fee}
                 </h1>
