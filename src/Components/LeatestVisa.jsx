@@ -41,11 +41,11 @@ const LeatestVisa = () => {
         need
       </p>
 
-      <div className="md:grid md:grid-cols-3 md:ml-14 p-5  ">
+      <div className="md:grid md:grid-cols-3 lg:ml-14 p-5 gap-4  ">
         {allVisa.slice(0, 6).map((visa) => (
           <div
             key={visa._id}
-            className="card bg-base-100 my-3 md:w-80 shadow-2xl"
+            className="card bg-base-100 my-3 lg:w-80 shadow-2xl"
           >
             <figure className="  border ">
               <img
