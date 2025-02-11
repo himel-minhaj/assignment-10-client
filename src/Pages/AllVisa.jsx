@@ -11,15 +11,17 @@ const AllVisa = () => {
   // console.log("value", visa);
   useEffect(() => {
     if (visa == undefined) {
-      fetch("http://localhost:5000/visa")
+      fetch("https://assignment-10-visa-server-phi.vercel.app/visa")
         .then((res) => res.json())
         .then((data) => setAllVisa(data));
     } else if (visa == "All") {
-      fetch("http://localhost:5000/visa")
+      fetch("https://assignment-10-visa-server-phi.vercel.app/visa")
         .then((res) => res.json())
         .then((data) => setAllVisa(data));
     } else {
-      fetch(`http://localhost:5000/visa/findVisa/${visa}`)
+      fetch(
+        `https://assignment-10-visa-server-phi.vercel.app/visa/findVisa/${visa}`
+      )
         .then((res) => res.json())
         .then((data) => setAllVisa(data));
     }

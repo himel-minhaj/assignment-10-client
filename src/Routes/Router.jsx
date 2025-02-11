@@ -22,12 +22,14 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/visa/find"),
+        loader: () =>
+          fetch("https://assignment-10-visa-server-phi.vercel.app/visa/find"),
       },
       {
         path: "Allvisas",
         element: <AllVisa></AllVisa>,
-        loader: () => fetch("http://localhost:5000/visa"),
+        loader: () =>
+          fetch("https://assignment-10-visa-server-phi.vercel.app/visa"),
       },
       {
         path: "AddVisa",
@@ -41,7 +43,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         // loader: ({ params }) =>
-        //   fetch(`http://localhost:5000/visa/MyAddedVisas/${params.email}`),
+        //   fetch(`https://assignment-10-visa-server-phi.vercel.app/visa/MyAddedVisas/${params.email}`),
       },
       {
         path: "MyVisaApplications",
@@ -50,7 +52,7 @@ const router = createBrowserRouter([
             <MyVisaApplications></MyVisaApplications>
           </PrivateRoute>
         ),
-        // loader: () => fetch("http://localhost:5000/apply"),
+        // loader: () => fetch("https://assignment-10-visa-server-phi.vercel.app/apply"),
       },
       {
         path: "Details/:id",
@@ -60,13 +62,17 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/visa/${params.id}`),
+          fetch(
+            `https://assignment-10-visa-server-phi.vercel.app/visa/${params.id}`
+          ),
       },
       {
         path: "updateAddvisa/:id",
         element: <UpdateAddvisa></UpdateAddvisa>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/visa/${params.id}`),
+          fetch(
+            `https://assignment-10-visa-server-phi.vercel.app/visa/${params.id}`
+          ),
       },
     ],
   },

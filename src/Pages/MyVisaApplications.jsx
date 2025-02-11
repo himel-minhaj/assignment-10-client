@@ -12,20 +12,20 @@ const MyVisaApplications = () => {
   const [myVisaApplications, setMyVisaApplications] = useState(null);
   const [search, setSearch] = useState("");
 
-
   useEffect(() => {
     if (search) {
       fetch(
-        `http://localhost:5000/apply?searchParams=${search}&email=${user.email}`
+        `https://assignment-10-visa-server-phi.vercel.app/apply?searchParams=${search}&email=${user.email}`
       )
         .then((res) => res.json())
         .then((data) => {
           // console.log(data);
           setMyVisaApplications(data);
         });
-    }
-    else {
-      fetch(`http://localhost:5000/apply/myvisaApplication/${user.email}`)
+    } else {
+      fetch(
+        `https://assignment-10-visa-server-phi.vercel.app/apply/myvisaApplication/${user.email}`
+      )
         .then((res) => res.json())
         .then((data) => setMyVisaApplications(data));
     }
@@ -33,7 +33,7 @@ const MyVisaApplications = () => {
   }, [search, user.email]);
   // useEffect(() => {
   //   fetch(
-  //     `http://localhost:5000/apply?searchParams=${search}&email=${user.email}`
+  //     `https://assignment-10-visa-server-phi.vercel.app/apply?searchParams=${search}&email=${user.email}`
   //   )
   //     .then((res) => res.json())
   //     .then((data) => {
@@ -53,7 +53,7 @@ const MyVisaApplications = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/apply/${id}`, {
+        fetch(`https://assignment-10-visa-server-phi.vercel.app/apply/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

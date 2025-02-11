@@ -23,7 +23,6 @@ const UpdateAddvisa = () => {
   // const email = user?.email;
   // console.log(email);
   const handleSubmit = (e) => {
-    
     e.preventDefault();
     const form = e.target;
 
@@ -37,25 +36,24 @@ const UpdateAddvisa = () => {
       fee: form.fee.value,
       Validity: form.Validity.value,
       Application_method: form.Application_method.value,
-      
     };
 
     // console.log("Collected Visa Data:", visaData); // Check values before sending
 
-     fetch(`http://localhost:5000/visa/${_id}`, {
-       method: "PATCH",
-       headers: {
-         "Content-Type": "application/json",
-       },
-       body: JSON.stringify(visaData),
-     })
-       .then((res) => res.json())
-       .then((data) => {
+    fetch(`https://assignment-10-visa-server-phi.vercel.app/visa/${_id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(visaData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
         //  console.log(data);
-         if (data.modifiedCount) {
-           Swal.fire("Visa updated successfully!");
-         }
-       });
+        if (data.modifiedCount) {
+          Swal.fire("Visa updated successfully!");
+        }
+      });
   };
 
   return (

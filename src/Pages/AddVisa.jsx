@@ -49,7 +49,7 @@ const AddVisa = () => {
       email,
     };
     // console.log(visaData);
-    fetch("http://localhost:5000/visa", {
+    fetch("https://assignment-10-visa-server-phi.vercel.app/visa", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

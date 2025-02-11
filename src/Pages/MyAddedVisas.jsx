@@ -15,15 +15,17 @@ const MyAddedVisas = () => {
   //   setVisaData(myAddedVisa);
   // }
   useEffect(() => {
-    fetch(`http://localhost:5000/visa/MyAddedVisas/${user.email}`)
+    fetch(
+      `https://assignment-10-visa-server-phi.vercel.app/visa/MyAddedVisas/${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => setVisaData(data));
-    // 
+    //
   }, [user.email]);
 
   const handleDelete = (id) => {
     // console.log(id);
-    fetch(`http://localhost:5000/visa/${id}`, {
+    fetch(`https://assignment-10-visa-server-phi.vercel.app/visa/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

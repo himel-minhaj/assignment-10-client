@@ -49,7 +49,7 @@ const Details = () => {
 
     // console.log("Submitted Data:", formData);
     setIsOpen(false); // Close the modal after submission
-    fetch("http://localhost:5000/apply", {
+    fetch("https://assignment-10-visa-server-phi.vercel.app/apply", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
