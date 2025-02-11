@@ -23,18 +23,18 @@ const AddVisa = () => {
     const fee = form.fee.value;
     const Validity = form.Validity.value;
     const Application_method = form.Application_method.value;
-    console.log(
-      countryName,
-      countryImageUrl,
-      Visa_type,
-      Processing_time,
-      requiredDocuments,
-      Description,
-      Age_restriction,
-      fee,
-      Validity,
-      Application_method
-    );
+    // console.log(
+    //   countryName,
+    //   countryImageUrl,
+    //   Visa_type,
+    //   Processing_time,
+    //   requiredDocuments,
+    //   Description,
+    //   Age_restriction,
+    //   fee,
+    //   Validity,
+    //   Application_method
+    // );
     const visaData = {
       countryName,
       countryImageUrl,
@@ -48,7 +48,7 @@ const AddVisa = () => {
       Application_method,
       email,
     };
-    console.log(visaData);
+    // console.log(visaData);
     fetch("http://localhost:5000/visa", {
       method: "POST",
       headers: {
@@ -58,7 +58,7 @@ const AddVisa = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.insertedId) {
           Swal.fire("Visa Add Successfully");
         }

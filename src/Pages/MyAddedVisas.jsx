@@ -7,10 +7,10 @@ import { Helmet } from "react-helmet";
 const MyAddedVisas = () => {
   // const myAddedVisa = useLoaderData();
   const { user } = useContext(AuthContext);
-  console.log(user.email);
+  // console.log(user.email);
   // console.log(myAddedVisa);
   const [visaData, setVisaData] = useState(null);
-  console.log(visaData);
+  // console.log(visaData);
   // if (user?.email == myAddedVisa?.email) {
   //   setVisaData(myAddedVisa);
   // }
@@ -22,13 +22,13 @@ const MyAddedVisas = () => {
   }, [user.email]);
 
   const handleDelete = (id) => {
-    console.log(id);
+    // console.log(id);
     fetch(`http://localhost:5000/visa/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.deletedCount > 0) {
           Swal.fire({
             title: "Deleted!",

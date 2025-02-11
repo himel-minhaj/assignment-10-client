@@ -8,7 +8,7 @@ const AllVisa = () => {
   // console.log(allVisa);
   const [allVisa, setAllVisa] = useState(visaData);
   const [visa, setVisa] = useState();
-  console.log("value", visa);
+  // console.log("value", visa);
   useEffect(() => {
     if (visa == undefined) {
       fetch("http://localhost:5000/visa")

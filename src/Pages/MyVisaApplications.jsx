@@ -37,7 +37,7 @@ const MyVisaApplications = () => {
   //   )
   //     .then((res) => res.json())
   //     .then((data) => {
-  //       // console.log(data);
+  //        console.log(data);
   //       setMyVisaApplications(data);
   //     });
   // }, [search, user.email]);
@@ -58,7 +58,7 @@ const MyVisaApplications = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            // console.log(data);
             if (data.deletedCount > 0) {
               // ui update/ state update
               const remaningdata = myVisaApplications.filter(

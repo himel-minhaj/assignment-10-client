@@ -47,7 +47,7 @@ const Details = () => {
       Description,
     };
 
-    console.log("Submitted Data:", formData);
+    // console.log("Submitted Data:", formData);
     setIsOpen(false); // Close the modal after submission
     fetch("http://localhost:5000/apply", {
       method: "POST",

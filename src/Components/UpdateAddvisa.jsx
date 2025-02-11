@@ -40,7 +40,7 @@ const UpdateAddvisa = () => {
       
     };
 
-    console.log("Collected Visa Data:", visaData); // Check values before sending
+    // console.log("Collected Visa Data:", visaData); // Check values before sending
 
      fetch(`http://localhost:5000/visa/${_id}`, {
        method: "PATCH",
@@ -51,7 +51,7 @@ const UpdateAddvisa = () => {
      })
        .then((res) => res.json())
        .then((data) => {
-         console.log(data);
+        //  console.log(data);
          if (data.modifiedCount) {
            Swal.fire("Visa updated successfully!");
          }

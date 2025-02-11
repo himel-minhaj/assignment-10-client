@@ -40,7 +40,7 @@ const Register = () => {
     const photo = e.target.photo.value;
     const email = e.target.email.value;
 
-    console.log(name, email, password, photo);
+    // console.log(name, email, password, photo);
     createNewUser(email, password)
       .then((Result) => {
         // console.log(Result.user);
