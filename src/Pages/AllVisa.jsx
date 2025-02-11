@@ -101,7 +101,7 @@ const AllVisa = () => {
         {allVisa.map((visa) => (
           <div
             key={visa._id}
-            className="card bg-base-100 my-3 md:w-80 shadow-2xl relative"
+            className="card bg-base-100 my-3 lg:w-80 shadow-2xl relative"
           >
             <figure className="  border ">
               <img
