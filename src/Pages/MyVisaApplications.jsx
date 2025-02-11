@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const MyVisaApplications = () => {
   // const visaData = useLoaderData();
@@ -71,6 +72,10 @@ const MyVisaApplications = () => {
   };
   return (
     <div className="dark:text-white">
+      <Helmet>
+        <title>Visa Navigator/My Visa Applications</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       <h1 className="md:text-5xl text-center my-3 font-bold">
         My Visa Applications
       </h1>

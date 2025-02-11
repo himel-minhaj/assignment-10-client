@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const MyAddedVisas = () => {
   // const myAddedVisa = useLoaderData();
@@ -42,6 +43,10 @@ const MyAddedVisas = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>Visa Navigator/MyAddedVisas</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       <div className="md:grid md:grid-cols-3 ml-3 p-2  gap-1 mx-auto relative ">
         {visaData?.map((visa) => (
           <div
@@ -56,10 +61,7 @@ const MyAddedVisas = () => {
               />
             </figure>
             <div className="card-body">
-              <h2 className="card-title">
-                {visa.countryName}
-                
-              </h2>
+              <h2 className="card-title">{visa.countryName}</h2>
               <div>
                 <p>Processing_time :{visa.Processing_time} </p>
                 <p>Validity : {visa.Processing_time}</p>

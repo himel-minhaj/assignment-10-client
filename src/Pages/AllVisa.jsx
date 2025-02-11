@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { Cursor, Typewriter, useTypewriter } from "react-simple-typewriter";
+import { Helmet } from "react-helmet";
 
 const AllVisa = () => {
   const visaData = useLoaderData();
@@ -37,6 +38,10 @@ const AllVisa = () => {
   // });
   return (
     <div className="dark:text-black">
+      <Helmet>
+        <title>Visa Navigator/All Visa</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       <h1 className="md:text-4xl font-bold text-center mt-3 dark:text-white ">
         Apply for visa for{" "}
         <span className="font-bold text-red-600">
@@ -111,7 +116,9 @@ const AllVisa = () => {
               <div>
                 <p>Processing_time :{visa.Processing_time} </p>
                 <p>Validity : {visa.Processing_time}</p>
-                <p className="absolute top-5 right-3 bg-gray-300 p-2 rounded-md">{visa.Visa_type}</p>
+                <p className="absolute top-5 right-3 bg-gray-300 p-2 rounded-md">
+                  {visa.Visa_type}
+                </p>
               </div>
               <div className="flex justify-center items-center gap-2 ">
                 <h1 className=" text-red-600 font-bold text-xl">

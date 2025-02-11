@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
 
-// import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
   const { createNewUser, setUser, updateUserProfile } = useContext(AuthContext);
@@ -61,10 +61,10 @@ const Register = () => {
   };
   return (
     <div className="min-h-screen flex items-center justify-center py-10 ">
-      {/* <Helmet>
-        <title>Lingo Bingo/Register</title>
+      <Helmet>
+        <title>Visa Navigator/Register</title>
         <meta name="description" content="Helmet application" />
-      </Helmet> */}
+      </Helmet>
       <div className="card bg-blue-500 w-full max-w-lg p-10 rounded-none shrink-0 shadow-4xl">
         <h2 className="font-bold text-center text-3xl">
           Register your account

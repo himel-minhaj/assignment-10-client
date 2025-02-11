@@ -5,7 +5,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../Firebase/Firebase.init";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-// import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet";
 import googleIcon from "../assets/google.png";
 import toast from "react-hot-toast";
 
@@ -65,10 +65,10 @@ const Login = () => {
   };
   return (
     <div className="min-h-screen md:flex items-center justify-center py-10">
-      {/* <Helmet>
-        <title>Lingo Bingo/Login</title>
+      <Helmet>
+        <title>Visa Navigator/Login</title>
         <meta name="description" content="Helmet application" />
-      </Helmet> */}
+      </Helmet>
       <div className="card  w-full max-w-lg p-10 rounded-none shrink-0 shadow-4xl bg-blue-500">
         <h2 className="font-bold text-center text-3xl">Login Your Account</h2>
         <form onSubmit={handleSubmit} className="card-body">

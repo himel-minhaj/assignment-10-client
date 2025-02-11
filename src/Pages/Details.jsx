@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const Details = () => {
   const { user } = useContext(AuthContext);
@@ -66,6 +67,10 @@ const Details = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Visa Navigator/Details</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       <div className="rounded-xl bg-base-100 w-[80%] mx-auto my-5 shadow-2xl relative">
         <figure className="p-4">
           <img
