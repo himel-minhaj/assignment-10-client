@@ -36,8 +36,8 @@ const AllVisa = () => {
   //   loop: {},
   // });
   return (
-    <div className="dark:text-white">
-      <h1 className="md:text-4xl font-bold text-center mt-3 ">
+    <div className="dark:text-black">
+      <h1 className="md:text-4xl font-bold text-center mt-3 dark:text-white ">
         Apply for visa for{" "}
         <span className="font-bold text-red-600">
           <Typewriter
@@ -62,14 +62,14 @@ const AllVisa = () => {
           <Cursor cursorColor="green" cursorStyle="/" />
         </span>
       </h1>
-      <p className="text-lg text-center my-2 w-9/12 mx-auto">
+      <p className="text-lg text-center my-2 w-9/12 mx-auto dark:text-white">
         The Visa Navigator helps you to quickly and easily find the visa
         you,tailored for your travel, study, or work needs. Learn about visa
         categories, fees, processing times, and more in one seamless platform
         need
       </p>
       <div className="flex justify-center items-center space-x-2">
-        <h1 className="font-bold">Filter By Visa Type</h1>
+        <h1 className="font-bold dark:text-white">Filter By Visa Type</h1>
         <select
           onChange={(e) => setVisa(e.target.value)}
           className="select select-info w-full max-w-xs"
@@ -94,7 +94,7 @@ const AllVisa = () => {
         {allVisa.map((visa) => (
           <div
             key={visa._id}
-            className="card bg-base-100 my-3 md:w-80 shadow-2xl"
+            className="card bg-base-100 my-3 md:w-80 shadow-2xl relative"
           >
             <figure className="  border ">
               <img
@@ -111,6 +111,7 @@ const AllVisa = () => {
               <div>
                 <p>Processing_time :{visa.Processing_time} </p>
                 <p>Validity : {visa.Processing_time}</p>
+                <p className="absolute top-5 right-3 bg-gray-300 p-2 rounded-md">{visa.Visa_type}</p>
               </div>
               <div className="flex justify-center items-center gap-2 ">
                 <h1 className=" text-red-600 font-bold text-xl">

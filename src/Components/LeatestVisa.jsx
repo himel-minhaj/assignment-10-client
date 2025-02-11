@@ -8,8 +8,8 @@ const LeatestVisa = () => {
   // const [allVisa, setAllVisa] = useState(visaData);
 
   return (
-    <div className="dark:text-white">
-      <h1 className="md:text-4xl font-bold text-center mt-3 ">
+    <div className="dark:text-black">
+      <h1 className="md:text-4xl font-bold text-center mt-3 dark:text-white">
         Apply for visa for{" "}
         <span className="font-bold text-red-600">
           <Typewriter
@@ -34,14 +34,14 @@ const LeatestVisa = () => {
           <Cursor cursorColor="green" cursorStyle="/" />
         </span>
       </h1>
-      <p className="text-lg text-center my-2 w-9/12 mx-auto">
+      <p className="text-lg text-center my-2 w-9/12 mx-auto dark:text-white">
         The Visa Navigator helps you to quickly and easily find the visa
         you,tailored for your travel, study, or work needs. Learn about visa
         categories, fees, processing times, and more in one seamless platform
         need
       </p>
 
-      <div className="md:grid md:grid-cols-3 p-2 mx-auto ml-4 ">
+      <div className="md:grid md:grid-cols-3 md:ml-14 p-5  ">
         {allVisa.slice(0, 6).map((visa) => (
           <div
             key={visa._id}
@@ -77,7 +77,7 @@ const LeatestVisa = () => {
       </div>
       <div className="flex justify-center items-center">
         <Link to={"/Allvisas"} className="btn btn-warning p-4">
-         See All Visa
+          See All Visa
         </Link>
       </div>
     </div>
