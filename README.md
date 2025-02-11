@@ -23,7 +23,7 @@ Visa Navigator is a user-friendly platform designed to streamline visa applicati
 
 ## 📜 How to Run the Project
 ### Client Side
-1. Clone the repository: `git clone https://github.com/himel-minhaj/assignment-10-client`
+1. Clone the repository: `git clone https://github.com/himel-minhaj/assignment-10-client?tab=readme-ov-file`
 2. Install dependencies: `npm install`
 3. Start the development server: `npm run dev`
 
